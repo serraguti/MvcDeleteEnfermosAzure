@@ -1,0 +1,38 @@
+﻿@model List<Enfermo>
+
+<h1 style="color:blue">Eliminar enfermos</h1>
+
+<img src="https://storagepracticapgs.blob.core.windows.net/imagenes/avatardoctor.png"
+style="width: 50px; height: 50px;"/>
+
+<form method="post">
+    <label>Introduzca inscripción</label>
+    <input type="number" name="inscripcion"
+           class="form-control" required/>
+    <button class="btn btn-danger">
+        Delete
+    </button>
+</form>
+<hr/>
+
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th>INSCRIPCION</th>
+            <th>APELLIDO</th>
+            <th>DIRECCION</th>
+            <th>FECHA NACIMIENTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Enfermo enf in Model)
+        {
+            <tr>
+                <td>@enf.Inscripcion</td>
+                <td>@enf.Apellido</td>
+                <td>@enf.Direccion</td>
+                <td>@enf.FechaNacimiento.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
